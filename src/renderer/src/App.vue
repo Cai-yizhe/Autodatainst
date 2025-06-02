@@ -1,16 +1,20 @@
 <script setup lang="ts">
-// 简化脚本，移除之前的内容
+import HmrTest from './components/HmrTest.vue'
 </script>
 
 <template>
-  <!-- 空白窗口，无内容 -->
-  <div class="empty-window"></div>
+  <div class="app">
+    <HmrTest />
+  </div>
 </template>
 
 <style>
-.empty-window {
+.app {
   width: 100%;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #fff;
 }
 </style>

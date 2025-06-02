@@ -20,7 +20,8 @@
     "build:mac": "npm run build && electron-builder --mac",
     "build:linux": "npm run build && electron-builder --linux",
     "test:startup": "node scripts/startup-test.js",
-    "verify:env": "node scripts/env-check.js"
+    "verify:env": "node scripts/env-check.js",
+    "verify:hmr": "node scripts/verify-hmr.js"
   },
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.1",

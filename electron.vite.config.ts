@@ -1,6 +1,7 @@
 import { resolve } from 'path'
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
 import vue from '@vitejs/plugin-vue'
+import viteConfig from './vite.config.js'
 
 export default defineConfig({
   main: {
@@ -10,13 +11,18 @@ export default defineConfig({
     plugins: [externalizeDepsPlugin()]
   },
   renderer: {
+    ...viteConfig, // 继承基础 Vite 配置
     resolve: {
+      ...viteConfig.resolve,
       alias: {
-        '@renderer': resolve('src/renderer/src'),
-        '@styles': resolve('src/renderer/src/styles')
+        ...viteConfig.resolve.alias,
+        '@renderer': resolve('src/renderer/src')
       }
     },
-    plugins: [vue()],
+    plugins: [
+      ...viteConfig.plugins,
+      vue()
+    ],
     css: {
       preprocessorOptions: {
         scss: {
