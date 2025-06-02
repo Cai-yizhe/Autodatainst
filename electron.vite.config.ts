@@ -12,9 +12,17 @@ export default defineConfig({
   renderer: {
     resolve: {
       alias: {
-        '@renderer': resolve('src/renderer/src')
+        '@renderer': resolve('src/renderer/src'),
+        '@styles': resolve('src/renderer/src/styles')
       }
     },
-    plugins: [vue()]
+    plugins: [vue()],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@import "@styles/element-plus.scss";`
+        }
+      }
+    }
   }
 })
